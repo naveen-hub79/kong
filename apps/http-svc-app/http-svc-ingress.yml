@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-svc-ingress
+spec:
+  ingressClassName: kong
+  rules:
+  # - host: foo.bar
+  - http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: http-svc
+            port: 
+              number: 80
